@@ -1,0 +1,13 @@
+html {
+  display: flex;
+  justify-content: center;
+  background-color: bisque;
+}
+
+#mainContainer {
+  background-color: green;
+}
+
+.screen {
+  background-color: yellow;
+}
