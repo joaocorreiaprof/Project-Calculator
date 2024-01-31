@@ -53,13 +53,20 @@ function calculate() {
 
   for (let index = 0; index < expression.length; index++) {
     if (expression[index] === "+") {
-      let operator = "+";
-      let firstNumber = parseInt(expression.slice(0, index));
-      let secondNumber = parseInt(expression.slice(index + 1));
-      console.log(firstNumber);
-      console.log(secondNumber);
-      let result = operate(firstNumber, operator, secondNumber);
-      return result;
+      operator = "+";
+      firstNumber = parseInt(expression.slice(0, index));
+      secondNumber = parseInt(expression.slice(index + 1));
+      finalResult = operate(firstNumber, secondNumber);
+      document.getElementById("display").innerText = finalResult;
+      return finalResult;
+    }
+    if (expression[index] === "-") {
+      operator = "-";
+      firstNumber = parseInt(expression.slice(0, index));
+      secondNumber = parseInt(expression.slice(index + 1));
+      finalResult = subtract(firstNumber, secondNumber);
+      document.getElementById("display").innerText = finalResult;
+      return finalResult;
     }
   }
 }
