@@ -56,7 +56,7 @@ function calculate() {
       operator = "+";
       firstNumber = parseInt(expression.slice(0, index));
       secondNumber = parseInt(expression.slice(index + 1));
-      finalResult = operate(firstNumber, secondNumber);
+      finalResult = operate(firstNumber, operator, secondNumber);
       document.getElementById("display").innerText = finalResult;
       return finalResult;
     }
@@ -64,9 +64,26 @@ function calculate() {
       operator = "-";
       firstNumber = parseInt(expression.slice(0, index));
       secondNumber = parseInt(expression.slice(index + 1));
-      finalResult = subtract(firstNumber, secondNumber);
+      finalResult = operate(firstNumber, operator, secondNumber);
+      document.getElementById("display").innerText = finalResult;
+      return finalResult;
+    }
+    if (expression[index] === "X") {
+      operator = "X";
+      firstNumber = parseInt(expression.slice(0, index));
+      secondNumber = parseInt(expression.slice(index + 1));
+      finalResult = operate(firstNumber, operator, secondNumber);
+      document.getElementById("display").innerText = finalResult;
+      return finalResult;
+    }
+    if (expression[index] === "/") {
+      operator = "/";
+      firstNumber = parseInt(expression.slice(0, index));
+      secondNumber = parseInt(expression.slice(index + 1));
+      finalResult = operate(firstNumber, operator, secondNumber);
       document.getElementById("display").innerText = finalResult;
       return finalResult;
     }
   }
+  console.log(expression);
 }
