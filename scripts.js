@@ -46,6 +46,16 @@ function operate(firstNumber, operator, secondNumber) {
 function updateDisplay(number) {
   document.getElementById("display").innerText += number;
 }
+
+// Function to clear the display
+function clearDisplay() {
+  let expression = document.getElementById("display");
+  expression.textContent = "";
+}
+
+// Function to get negative number
+function toggleSign() {}
+
 // Function to calculate the result
 function calculate() {
   let expression = document.getElementById("display").innerText;
@@ -56,7 +66,7 @@ function calculate() {
 
   for (let i = 0; i < operators.length; i++) {
     while (operations.includes(operators[i])) {
-      let index = operations.indexOf(operators[i]);
+      let index = operationgs.indexOf(operators[i]);
       let result = operate(numbers[index], operators[i], numbers[index + 1]);
 
       numbers.splice(index, 2, result);

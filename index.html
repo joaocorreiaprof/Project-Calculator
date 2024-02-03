@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -12,24 +12,29 @@
       <div class="calculator">
         <div class="screen" id="display"></div>
         <div class="buttons">
-          <button class="button7" onclick="updateDisplay('7')">7</button>
-          <button class="button8" onclick="updateDisplay('8')">8</button>
-          <button class="button9" onclick="updateDisplay('9')">9</button>
-          <button class="buttonPlus" onclick="updateDisplay('+')">+</button>
+          <button onclick="clearDisplay()">AC</button>
+          <button onclick="toggleSign()">+/-</button>
+          <button onclick="percent()">%</button>
+          <button onclick="updateDisplay('/')">÷</button>
 
-          <button class="button4" onclick="updateDisplay('4')">4</button>
-          <button class="button5" onclick="updateDisplay('5')">5</button>
-          <button class="button6" onclick="updateDisplay('6')">6</button>
-          <button class="buttonMinus" onclick="updateDisplay('-')">-</button>
+          <button onclick="updateDisplay('7')">7</button>
+          <button onclick="updateDisplay('8')">8</button>
+          <button onclick="updateDisplay('9')">9</button>
+          <button onclick="updateDisplay('*')">X</button>
 
-          <button class="button1" onclick="updateDisplay('1')">1</button>
-          <button class="button2" onclick="updateDisplay('2')">2</button>
-          <button class="button3" onclick="updateDisplay('3')">3</button>
-          <button class="buttonMultiply" onclick="updateDisplay('X')">X</button>
+          <button onclick="updateDisplay('4')">4</button>
+          <button onclick="updateDisplay('5')">5</button>
+          <button onclick="updateDisplay('6')">6</button>
+          <button onclick="updateDisplay('-')">-</button>
 
-          <button class="button0" onclick="updateDisplay('0')">0</button>
-          <button class="buttonEquals" onclick="calculate()">=</button>
-          <button class="buttonDivide" onclick="updateDisplay('/')">/</button>
+          <button onclick="updateDisplay('1')">1</button>
+          <button onclick="updateDisplay('2')">2</button>
+          <button onclick="updateDisplay('3')">3</button>
+          <button onclick="updateDisplay('+')">+</button>
+
+          <button onclick="updateDisplay('0')">0</button>
+          <button onclick="addDecimal()">,</button>
+          <button id="equals" onclick="calculate()">=</button>
         </div>
       </div>
     </div>
