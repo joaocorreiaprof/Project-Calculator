@@ -56,6 +56,29 @@ function clearDisplay() {
 // Function to get negative number
 function toggleSign() {}
 
+//Function to add decimal number
+
+function addDecimal() {
+  let expression = document.getElementById("display");
+
+  if (!expression.textContent.includes(".")) {
+    expression.textContent += ".";
+  }
+}
+
+//Function to get percentage of a number
+function percent() {
+  let expression = document.getElementById("display");
+  let currentContent = expression.textContent;
+
+  // Remove the percentage symbol if it's already present
+  currentContent = currentContent.replace("%", "");
+
+  // Convert the current content to a decimal, divide by 100, and append the percentage symbol
+  let result = parseFloat(currentContent) / 100;
+  expression.textContent = result + "%";
+}
+
 // Function to calculate the result
 function calculate() {
   let expression = document.getElementById("display").innerText;
@@ -66,7 +89,7 @@ function calculate() {
 
   for (let i = 0; i < operators.length; i++) {
     while (operations.includes(operators[i])) {
-      let index = operationgs.indexOf(operators[i]);
+      let index = operations.indexOf(operators[i]);
       let result = operate(numbers[index], operators[i], numbers[index + 1]);
 
       numbers.splice(index, 2, result);
