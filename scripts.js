@@ -54,7 +54,13 @@ function clearDisplay() {
 }
 
 // Function to get negative number
-function toggleSign() {}
+function toggleSign() {
+  let displayElement = document.getElementById("display");
+  let currentExpression = parseFloat(displayElement.innerText);
+  let toggledExpression = currentExpression * -1;
+
+  displayElement.innerText = toggledExpression;
+}
 
 //Function to add decimal number
 
@@ -71,10 +77,8 @@ function percent() {
   let expression = document.getElementById("display");
   let currentContent = expression.textContent;
 
-  // Remove the percentage symbol if it's already present
   currentContent = currentContent.replace("%", "");
 
-  // Convert the current content to a decimal, divide by 100, and append the percentage symbol
   let result = parseFloat(currentContent) / 100;
   expression.textContent = result + "%";
 }
@@ -94,6 +98,10 @@ function calculate() {
 
       numbers.splice(index, 2, result);
       operations.splice(index, 1);
+
+      if (result % 1 !== 0) {
+        result = result.toFixed(2);
+      }
 
       document.getElementById("display").innerText = result;
     }

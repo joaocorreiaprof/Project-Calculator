@@ -7,30 +7,38 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Project: Calculator</h1>
+    <header>
+      <div class="header-content">
+        <h1>Basic Calculator</h1>
+        <p>A simple but powerful calculator</p>
+      </div>
+    </header>
+
+    <h3>Why did the calculator attend therapy?</h3>
+    <h4>It had too many issues with its buttons!</h4>
     <div id="mainContainer">
       <div class="calculator">
         <div class="screen" id="display"></div>
         <div class="buttons">
-          <button onclick="clearDisplay()">AC</button>
-          <button onclick="toggleSign()">+/-</button>
-          <button onclick="percent()">%</button>
-          <button onclick="updateDisplay('/')">÷</button>
+          <button class="topButtons" onclick="clearDisplay()">AC</button>
+          <button class="topButtons" onclick="toggleSign()">+/-</button>
+          <button class="topButtons" onclick="percent()">%</button>
+          <button class="operators" onclick="updateDisplay('/')">÷</button>
 
           <button onclick="updateDisplay('7')">7</button>
           <button onclick="updateDisplay('8')">8</button>
           <button onclick="updateDisplay('9')">9</button>
-          <button onclick="updateDisplay('X')">X</button>
+          <button class="operators" onclick="updateDisplay('X')">X</button>
 
           <button onclick="updateDisplay('4')">4</button>
           <button onclick="updateDisplay('5')">5</button>
           <button onclick="updateDisplay('6')">6</button>
-          <button onclick="updateDisplay('-')">-</button>
+          <button class="operators" onclick="updateDisplay('-')">-</button>
 
           <button onclick="updateDisplay('1')">1</button>
           <button onclick="updateDisplay('2')">2</button>
           <button onclick="updateDisplay('3')">3</button>
-          <button onclick="updateDisplay('+')">+</button>
+          <button class="operators" onclick="updateDisplay('+')">+</button>
 
           <button onclick="updateDisplay('0')">0</button>
           <button onclick="addDecimal()">,</button>
@@ -38,6 +46,9 @@
         </div>
       </div>
     </div>
+    <footer>
+      <p>Calculator project by João Correia for The Odin Project</p>
+    </footer>
     <script src="scripts.js"></script>
   </body>
 </html>
