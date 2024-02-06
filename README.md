@@ -22,7 +22,7 @@ This is a basic calculator web application created using HTML, CSS, and JavaScri
 
 ## LIVE
 
-You can see a live example of this calculator [here]([https://example.com](https://joaocorreiaprof.github.io/Project-Calculator/)).
+You can see a live example of this calculator [here](https://joaocorreiaprof.github.io/Project-Calculator/).
 
 ## Contributing
 
