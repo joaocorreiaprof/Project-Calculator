@@ -25,10 +25,11 @@ let secondNumber = "";
 
 function operate(firstNumber, operator, secondNumber) {
   let finalResult;
-
+  if (operator === "/" && secondNumber === 0) {
+    return "Noob";
+  }
   if (operator === "+") {
     finalResult = add(firstNumber, secondNumber);
-    console.log(finalResult);
   } else if (operator === "-") {
     finalResult = subtract(firstNumber, secondNumber);
   } else if (operator === "X") {
@@ -42,27 +43,23 @@ function operate(firstNumber, operator, secondNumber) {
   return finalResult;
 }
 
-// Function to add the pressed number or operator to the display
 function updateDisplay(number) {
   document.getElementById("display").innerText += number;
 }
 
-// Function to clear the display
 function clearDisplay() {
   let expression = document.getElementById("display");
   expression.textContent = "";
 }
 
-// Function to get negative number
-function toggleSign() {
-  let displayElement = document.getElementById("display");
-  let currentExpression = parseFloat(displayElement.innerText);
-  let toggledExpression = currentExpression * -1;
+function deleteLastEntry() {
+  let expression = document.getElementById("display").innerText;
+  let deleteLast = expression.split("");
+  deleteLast.pop();
 
-  displayElement.innerText = toggledExpression;
+  let updatedExpression = deleteLast.join("");
+  document.getElementById("display").innerText = updatedExpression;
 }
-
-//Function to add decimal number
 
 function addDecimal() {
   let expression = document.getElementById("display");
@@ -71,23 +68,11 @@ function addDecimal() {
     expression.textContent += ".";
   }
 }
-
-//Function to get percentage of a number
-function percent() {
-  let expression = document.getElementById("display");
-  let currentContent = expression.textContent;
-
-  currentContent = currentContent.replace("%", "");
-
-  let result = parseFloat(currentContent) / 100;
-  expression.textContent = result + "%";
-}
-
 // Function to calculate the result
 function calculate() {
   let expression = document.getElementById("display").innerText;
 
-  let operators = ["+", "-", "X", "/"];
+  let operators = ["+", "-", "X", "/", "%"];
   let numbers = expression.split(/[-+X/]/).map(parseFloat);
   let operations = expression.split(/[0-9.]+/).filter(Boolean);
 
@@ -95,6 +80,11 @@ function calculate() {
     while (operations.includes(operators[i])) {
       let index = operations.indexOf(operators[i]);
       let result = operate(numbers[index], operators[i], numbers[index + 1]);
+
+      if (result === "Noob") {
+        document.getElementById("display").innerText = result;
+        return;
+      }
 
       numbers.splice(index, 2, result);
       operations.splice(index, 1);
